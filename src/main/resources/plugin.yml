@@ -1,0 +1,4 @@
+name: Traits
+version: '${project.version}'
+main: me.karwsz.traits.Traits
+api-version: '1.20'
