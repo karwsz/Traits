@@ -18,7 +18,7 @@ public class PlayerTraits {
     Map<UUID, List<Trait>> disableOnJoin;
 
     public PlayerTraits() {
-
+        Bukkit.getPluginManager().registerEvents(new TraitsListener(), Traits.instance);
     }
 
     public @NotNull List<Trait> getPlayerTraits(Player player) {

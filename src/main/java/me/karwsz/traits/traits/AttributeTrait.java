@@ -95,7 +95,6 @@ public class AttributeTrait implements Trait {
     @SuppressWarnings("all")
     @Override
     public void enable(Player player) {
-        CommandDispatcher<CommandSourceStack> dispatcher = MinecraftServer.getServer().getCommands().getDispatcher();
         CommandSourceStack sourceStack = MinecraftServer.getServer().createCommandSourceStack();
         MinecraftServer.getServer().getCommands().dispatchServerCommand(sourceStack, "minecraft:attribute " + player.getName() + " " + attribute.toString() + " modifier add " + uuid.toString() + " " + modifier.getName() + " " + modifier.getAmount() + " " + operationToString(modifier.getOperation()));
     }
@@ -103,11 +102,13 @@ public class AttributeTrait implements Trait {
     @SuppressWarnings("all")
     @Override
     public void disable(Player player) {
-        CommandDispatcher<CommandSourceStack> dispatcher = MinecraftServer.getServer().getCommands().getDispatcher();
+        removeModifier(player, attribute, uuid);
+    }
+
+    public static void removeModifier(Player player, NamespacedKey attribute, UUID uuid) {
         CommandSourceStack sourceStack = MinecraftServer.getServer().createCommandSourceStack();
         MinecraftServer.getServer().getCommands().dispatchServerCommand(sourceStack, "minecraft:attribute " + player.getName() + " " + attribute.toString() + " modifier remove " + uuid.toString());
     }
-
 
     @Override
     public @NotNull Map<String, Object> serialize() {

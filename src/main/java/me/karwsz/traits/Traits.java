@@ -3,10 +3,7 @@ package me.karwsz.traits;
 import dev.jorel.commandapi.*;
 import me.karwsz.traits.commands.TraitsCommand;
 import me.karwsz.traits.compatibility.Messages;
-import me.karwsz.traits.traits.AttributeTrait;
-import me.karwsz.traits.traits.PlayerTraits;
-import me.karwsz.traits.traits.Trait;
-import me.karwsz.traits.traits.TraitsManager;
+import me.karwsz.traits.traits.*;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Registry;
@@ -37,6 +34,7 @@ public final class Traits extends JavaPlugin {
         getLogger().log(Level.INFO, "Traits by Karwsz has been enabled");
         Messages.init();
         loadModules();
+
     }
 
     @Override
